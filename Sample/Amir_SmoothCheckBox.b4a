@@ -1,0 +1,58 @@
+﻿Build1=Default,com.aghajari.smoothcheckbox.sample
+Group=Default Group
+IconFile=
+Library1=core
+Library2=amir_smoothcheckbox
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="26"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.DarkTheme)~\n~'End of default text.~\n~
+Module1=Starter
+NumberOfFiles=0
+NumberOfLibraries=2
+NumberOfModules=1
+Version=8.3
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Amir_SmoothCheckBox
+	#VersionCode: 1
+	#VersionName: 1.00
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+
+End Sub
+
+Sub Globals
+	Dim CheckBox As Amir_SmoothCheckBox
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.Color=Colors.RGB(250,250,250)
+	CheckBox.Initialize("Amir")
+	Activity.AddView(CheckBox,100dip,100dip,56dip,56dip)
+	
+	CheckBox.AnimDuration=250
+	CheckBox.CheckedColor=Colors.Red	
+	CheckBox.FloorUnCheckedColor=Colors.Gray
+	CheckBox.TickColor=Colors.White
+	CheckBox.SetOnCheckedChangeListener
+	
+	CheckBox.ShowCheckBox
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Private Sub Amir_onCheckedChanged (mCheckBox As Amir_SmoothCheckBox,isChecked As Boolean)
+	Log("Checked Changed : "&isChecked)
+End Sub
